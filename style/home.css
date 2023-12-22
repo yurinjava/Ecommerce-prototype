@@ -3,3 +3,16 @@
     height: 270px;
     object-fit: contain;
 }
+#secondnav{
+    margin-top: 57px;
+}
+.container{
+    margin-top: 80px;
+}
+.navlink{
+    text-decoration: none;
+    color: antiquewhite;
+}
+.navlink:hover{
+    color: antiquewhite;
+}

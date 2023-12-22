@@ -1,5 +1,5 @@
 <?php 
-$action = "selectAlphabetical";
+$action = "select";
 
 require 'ecommerce-private/product-controller.php';
 //print_r($products);
@@ -21,8 +21,8 @@ require 'ecommerce-private/product-controller.php';
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">ProtoType</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5">
+        <a class="navbar-brand" href="home.php">ProtoType</a>
         
             <form class="form-inline w-75" >
                 <input class="form-control mx-auto mr-sm-2 w-75" type="search" placeholder="Search" aria-label="Search">
@@ -40,13 +40,32 @@ require 'ecommerce-private/product-controller.php';
             </ul>
         </div>
     </nav>
-    
+    <nav class=" text-center navbar-expand-lg navbar-dark bg-dark fixed-top mb-5 pt-1" id="secondnav">
+       
+        
+       
+        <div class="d-inline">
+            <ul class="list-inline">
+                <li class="list-inline-item mr-5"><a href="home.php?action=selectMotor" class="navlink">Motor</a></li>
+                <li class="list-inline-item  mr-5"><a href="home.php?action=selectSuspensoes" class="navlink">Suspensoes</a></li>
+                <li class="list-inline-item  mr-5"><a href="home.php?action=selectAcessorios" class="navlink">Acessorios</a></li>
+                <li class="list-inline-item mr-5"><a href="home.php?action=selectFreios" class="navlink">Freios</a></li>
+                <li class="list-inline-item mr-5"><a href="home.php?action=selectFerramentas" class="navlink">Ferramentas</a></li>
+            </ul>
+        </div>
+    </nav>
+   
     <!-- Product Listing -->
 
  
-    <div class="container mt-5">
+    <div class="container ">
+    
             <div class="row">
-                <?php foreach($products as $index=>$product){ ?>
+                <?php 
+                 if(isset($products)){
+                   
+                 
+                foreach($products as $index=>$product){ ?>
                 <div class="col-md-4 mb-4 mt-4">
                     <div class="card  text-center">
                         <!-- Product Image -->
@@ -58,13 +77,15 @@ require 'ecommerce-private/product-controller.php';
                             <?= $product->product_name; ?>
                             </h5>
                             <!-- Product Price -->
-                            <p class="card-text"><?= $product->product_price; ?></p>
+                            <p class="card-text">R$ <?= $product->product_price; ?></p>
                             <!-- Add to Cart Button -->
                             <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
                 </div>
-            <?php } ?>
+            <?php } }else{
+                echo "<div class='card mx-auto text-center mt-5'><h1>nenhum produto encontrado</h1></div>";
+            } ?>
             <!-- Repeat similar structure for other products -->
             
     

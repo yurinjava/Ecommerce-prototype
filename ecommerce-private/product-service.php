@@ -22,5 +22,12 @@ class productService{
 
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
+    public function selectMotor(){
+        $query ="select product_img, product_id, product_name, product_price from products where product_name like '%motor%'";
+       $stmt = $this->connection->prepare($query);
+       $stmt->execute();
+
+       return $stmt->fetchAll(PDO::FETCH_OBJ);
+   }
 }
 ?>
