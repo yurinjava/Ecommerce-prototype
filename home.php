@@ -2,8 +2,9 @@
 $action = "select";
 
 require 'ecommerce-private/product-controller.php';
+//echo '<pre>';
 //print_r($products);
-
+//echo '</pre>';
 
 ?>
 
@@ -47,11 +48,11 @@ require 'ecommerce-private/product-controller.php';
        
         <div class="d-inline">
             <ul class="list-inline">
-                <li class="list-inline-item mr-5"><a href="home.php?action=selectMotor" class="navlink">Motor</a></li>
-                <li class="list-inline-item  mr-5"><a href="home.php?action=selectSuspensoes" class="navlink">Suspensoes</a></li>
+                <li class="list-inline-item mr-5"><a href="home.php?action=selectEngine" class="navlink">Motor</a></li>
+                <li class="list-inline-item  mr-5"><a href="home.php?action=selectSuspension" class="navlink">Suspensoes</a></li>
                 <li class="list-inline-item  mr-5"><a href="home.php?action=selectAccessories" class="navlink">Acessorios</a></li>
-                <li class="list-inline-item mr-5"><a href="home.php?action=selectFreios" class="navlink">Freios</a></li>
-                <li class="list-inline-item mr-5"><a href="home.php?action=selectFerramentas" class="navlink">Ferramentas</a></li>
+                <li class="list-inline-item mr-5"><a href="home.php?action=selectBrakes" class="navlink">Freios</a></li>
+                <li class="list-inline-item mr-5"><a href="home.php?action=selectTools" class="navlink">Ferramentas</a></li>
             </ul>
         </div>
     </nav>
@@ -65,7 +66,7 @@ require 'ecommerce-private/product-controller.php';
     Order by
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="home.php?order=lowestPrice">Lowest price</a>
+    <a class="dropdown-item" href="#">Lowest price</a>
     <a class="dropdown-item" href="#">highest price</a>
     <a class="dropdown-item" href="#">Relevance</a>
   </div>
