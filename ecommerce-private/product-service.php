@@ -29,5 +29,12 @@ class productService{
 
        return $stmt->fetchAll(PDO::FETCH_OBJ);
    }
+   public function selectAccessories(){
+    $query ="select product_img, product_id, product_name, product_price from products where product_category = 'accessories'";
+   $stmt = $this->connection->prepare($query);
+   $stmt->execute();
+
+   return $stmt->fetchAll(PDO::FETCH_OBJ);
+}
 }
 ?>

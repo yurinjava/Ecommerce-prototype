@@ -23,5 +23,11 @@ require 'connection.php';
         $productService->selectAlphabetical();
         $products = $productService->selectAlphabetical();
       
+    }else if($action =='selectAccessories'){
+        $product = new Product();
+        $connection = new Connection();
+        $productService = new productService($connection, $product);
+        $productService->selectAccessories();
+        $products = $productService->selectAccessories();
     }
 ?>

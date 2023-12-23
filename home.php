@@ -15,6 +15,7 @@ require 'ecommerce-private/product-controller.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style/home.css">
+    <link rel="icon" href="assets/icons/site-icon.png">
     
     <title>ProtoType - home</title>
 </head>
@@ -48,7 +49,7 @@ require 'ecommerce-private/product-controller.php';
             <ul class="list-inline">
                 <li class="list-inline-item mr-5"><a href="home.php?action=selectMotor" class="navlink">Motor</a></li>
                 <li class="list-inline-item  mr-5"><a href="home.php?action=selectSuspensoes" class="navlink">Suspensoes</a></li>
-                <li class="list-inline-item  mr-5"><a href="home.php?action=selectAcessorios" class="navlink">Acessorios</a></li>
+                <li class="list-inline-item  mr-5"><a href="home.php?action=selectAccessories" class="navlink">Acessorios</a></li>
                 <li class="list-inline-item mr-5"><a href="home.php?action=selectFreios" class="navlink">Freios</a></li>
                 <li class="list-inline-item mr-5"><a href="home.php?action=selectFerramentas" class="navlink">Ferramentas</a></li>
             </ul>
@@ -59,6 +60,16 @@ require 'ecommerce-private/product-controller.php';
 
  
     <div class="container ">
+    <div class="dropdown" id="filter">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Order by
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="home.php?order=lowestPrice">Lowest price</a>
+    <a class="dropdown-item" href="#">highest price</a>
+    <a class="dropdown-item" href="#">Relevance</a>
+  </div>
+</div>
     
             <div class="row">
                 <?php 
@@ -109,4 +120,9 @@ require 'ecommerce-private/product-controller.php';
 
     
     </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+
     </html>
