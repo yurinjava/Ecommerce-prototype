@@ -1,6 +1,5 @@
 <?php 
 $action = "select";
-
 require 'ecommerce-private/product-controller.php';
 //echo '<pre>';
 //print_r($products);
@@ -24,9 +23,6 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
 }
 ///////////////////////////////////////////////////////////
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,12 +31,9 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style/home.css">
-    
-    
     <title>ProtoType - home</title>
 </head>
-
-<body onload="teste()">
+<body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5">
@@ -63,9 +56,6 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
         </div>
     </nav>
     <nav class=" text-center navbar-expand-lg navbar-dark bg-dark fixed-top mb-5 pt-1" id="secondnav">
-       
-        
-       
         <div class="d-inline">
             <ul class="list-inline">
                 
@@ -79,25 +69,20 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
     </nav>
    
     <!-- Product Listing -->
-
  
     <div class="container ">
     <div class="dropdown" id="filter">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Order by
-  </button>
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order by</button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-  <a class="dropdown-item" href="<?php if (str_contains($_SERVER['REQUEST_URI'], '?')) { echo $_SERVER['REQUEST_URI'] . '&filter=lowestprice'; } else { echo $_SERVER['REQUEST_URI'] . '?filter=lowestprice'; } ?>">Lowest price</a>
-  <a class="dropdown-item" href="<?php if (str_contains($_SERVER['REQUEST_URI'], '?')) { echo $_SERVER['REQUEST_URI'] . '&filter=highestprice'; } else { echo $_SERVER['REQUEST_URI'] . '?filter=highestprice'; } ?>">Highest price</a>
-  <a class="dropdown-item" href="<?php if (str_contains($_SERVER['REQUEST_URI'], '?')) { echo $_SERVER['REQUEST_URI'] . '&filter=relevance'; } else { echo $_SERVER['REQUEST_URI'] . '?filter=relevance'; } ?>">Relevance</a>
+    <a class="dropdown-item" href="<?php if (str_contains($_SERVER['REQUEST_URI'], '?')) { echo $_SERVER['REQUEST_URI'] . '&filter=lowestprice'; } else { echo $_SERVER['REQUEST_URI'] . '?filter=lowestprice'; } ?>">Lowest price</a>
+    <a class="dropdown-item" href="<?php if (str_contains($_SERVER['REQUEST_URI'], '?')) { echo $_SERVER['REQUEST_URI'] . '&filter=highestprice'; } else { echo $_SERVER['REQUEST_URI'] . '?filter=highestprice'; } ?>">Highest price</a>
+    <a class="dropdown-item" href="<?php if (str_contains($_SERVER['REQUEST_URI'], '?')) { echo $_SERVER['REQUEST_URI'] . '&filter=relevance'; } else { echo $_SERVER['REQUEST_URI'] . '?filter=relevance'; } ?>">Relevance</a>
   </div>
 </div>
     
             <div class="row">
                 <?php 
                  if(isset($products)){
-                   
-                 
                 foreach($products as $index=>$product){ ?>
                 <div class="col-md-4 mb-4 mt-4">
                     <div class="card  text-center">
