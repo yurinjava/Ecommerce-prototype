@@ -1,3 +1,18 @@
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="icon" href="assets/icons/site-icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/home.css">
+    
+    
+    <title>ProtoType - home</title>
+</head>
 <?php 
 $action = "select";
 
@@ -5,22 +20,27 @@ require 'ecommerce-private/product-controller.php';
 //echo '<pre>';
 //print_r($products);
 //echo '</pre>';
-
+/////////////SORTING OPTIONS//////////////////////////////
+if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
+    //echo "<script> alert('Sorting by lowest price') </script>";
+    usort($products, function($a, $b) {
+    return $a->product_price <=> $b->product_price;
+    });
+}else if($_GET['filter']=='highestprice'){
+    //echo "<script> alert('sorting by the highest price') </script>";
+    usort($products, function($a, $b) {
+    return $b->product_price <=> $a->product_price;
+    });
+}else if($_GET['filter']=='relevance'){
+   // echo "<script> alert('sorting by relevance') </script>";
+    usort($products, function($a, $b) {
+    return $a->product_relevance <=> $b->product_price;
+    });
+}
+///////////////////////////////////////////////////////////
 ?>
 
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/home.css">
-    <link rel="icon" href="assets/icons/site-icon.png">
-    
-    <title>ProtoType - home</title>
-</head>
-<body>
+<body onload="teste()">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5">
@@ -48,6 +68,7 @@ require 'ecommerce-private/product-controller.php';
        
         <div class="d-inline">
             <ul class="list-inline">
+                
                 <li class="list-inline-item mr-5"><a href="home.php?action=selectEngine" class="navlink">Motor</a></li>
                 <li class="list-inline-item  mr-5"><a href="home.php?action=selectSuspension" class="navlink">Suspensoes</a></li>
                 <li class="list-inline-item  mr-5"><a href="home.php?action=selectAccessories" class="navlink">Acessorios</a></li>
@@ -66,8 +87,8 @@ require 'ecommerce-private/product-controller.php';
     Order by
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Lowest price</a>
-    <a class="dropdown-item" href="#">highest price</a>
+    <a class="dropdown-item" href="home.php?filter=lowestprice">Lowest price</a>
+    <a class="dropdown-item" href="home.php?filter=highestprice">highest price</a>
     <a class="dropdown-item" href="#">Relevance</a>
   </div>
 </div>

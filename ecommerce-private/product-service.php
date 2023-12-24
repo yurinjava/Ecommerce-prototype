@@ -1,8 +1,5 @@
 <?php 
-if(isset($_GET['filter'])){
-    echo "<script>alert('iseet')</script>";
-    $filter = $_GET['filter'];
-}
+
 
 
 class productService{
@@ -15,49 +12,49 @@ class productService{
     }
 
     public function select(){
-        $query ='select product_img, product_id, product_name, product_price from products';
+        $query ='select product_img, product_id, product_name, product_price, product_relevance from products';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
     public function selectAlphabetical(){
-        $query ='select product_img, product_id, product_name, product_price from products order by product_name';
+        $query ='select product_img, product_id, product_name, product_price, product_relevance from products order by product_name';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
     public function selectEngine(){
-        $query ="select product_img, product_id, product_name, product_price from products where product_category = 'engine'";
+        $query ="select product_img, product_id, product_name, product_price, product_relevance from products where product_category = 'engine'";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
     public function selectAccessories(){
-        $query ="select product_img, product_id, product_name, product_price from products where product_category = 'accessories'";
+        $query ="select product_img, product_id, product_name, product_price, product_relevance from products where product_category = 'accessories'";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
     public function selectSuspension(){
-        $query ="select product_img, product_id, product_name, product_price from products where product_category = 'suspension'";
+        $query ="select product_img, product_id, product_name, product_price, product_relevance from products where product_category = 'suspension'";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
     public function selectBrakes(){
-        $query ="select product_img, product_id, product_name, product_price from products where product_category = 'brake'";
+        $query ="select product_img, product_id, product_name, product_price, product_relevance from products where product_category = 'brake'";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
     public function selectTools(){
-        $query ="select product_img, product_id, product_name, product_price from products where product_category = 'tools'";
+        $query ="select product_img, product_id, product_name, product_price, product_relevance from products where product_category = 'tools'";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
 
