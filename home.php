@@ -1,3 +1,29 @@
+<?php 
+$action = "select";
+
+require 'ecommerce-private/product-controller.php';
+//echo '<pre>';
+//print_r($products);
+//echo '</pre>';
+/////////////SORTING OPTIONS//////////////////////////////
+if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
+    //echo "<script> alert('Sorting by lowest price') </script>";
+    usort($products, function($a, $b) {
+    return $a->product_price <=> $b->product_price;
+    });
+}else if(isset($_GET['filter']) && $_GET['filter']=='highestprice'){
+    //echo "<script> alert('sorting by the highest price') </script>";
+    usort($products, function($a, $b) {
+    return $b->product_price <=> $a->product_price;
+    });
+}else if(isset($_GET['filter']) && $_GET['filter']=='relevance'){
+   // echo "<script> alert('sorting by relevance') </script>";
+   usort($products, function($a, $b) {
+    return $b->product_relevance <=> $a->product_relevance;
+    });
+}
+///////////////////////////////////////////////////////////
+?>
 
 
 
@@ -13,32 +39,6 @@
     
     <title>ProtoType - home</title>
 </head>
-<?php 
-$action = "select";
-
-require 'ecommerce-private/product-controller.php';
-//echo '<pre>';
-//print_r($products);
-//echo '</pre>';
-/////////////SORTING OPTIONS//////////////////////////////
-if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
-    //echo "<script> alert('Sorting by lowest price') </script>";
-    usort($products, function($a, $b) {
-    return $a->product_price <=> $b->product_price;
-    });
-}else if($_GET['filter']=='highestprice'){
-    //echo "<script> alert('sorting by the highest price') </script>";
-    usort($products, function($a, $b) {
-    return $b->product_price <=> $a->product_price;
-    });
-}else if($_GET['filter']=='relevance'){
-   // echo "<script> alert('sorting by relevance') </script>";
-    usort($products, function($a, $b) {
-    return $a->product_relevance <=> $b->product_price;
-    });
-}
-///////////////////////////////////////////////////////////
-?>
 
 <body onload="teste()">
 
@@ -87,9 +87,9 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
     Order by
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="home.php?filter=lowestprice">Lowest price</a>
-    <a class="dropdown-item" href="home.php?filter=highestprice">highest price</a>
-    <a class="dropdown-item" href="#">Relevance</a>
+  <a class="dropdown-item" href="<?php if (str_contains($_SERVER['REQUEST_URI'], '?')) { echo $_SERVER['REQUEST_URI'] . '&filter=lowestprice'; } else { echo $_SERVER['REQUEST_URI'] . '?filter=lowestprice'; } ?>">Lowest price</a>
+  <a class="dropdown-item" href="<?php if (str_contains($_SERVER['REQUEST_URI'], '?')) { echo $_SERVER['REQUEST_URI'] . '&filter=highestprice'; } else { echo $_SERVER['REQUEST_URI'] . '?filter=highestprice'; } ?>">Highest price</a>
+  <a class="dropdown-item" href="<?php if (str_contains($_SERVER['REQUEST_URI'], '?')) { echo $_SERVER['REQUEST_URI'] . '&filter=relevance'; } else { echo $_SERVER['REQUEST_URI'] . '?filter=relevance'; } ?>">Relevance</a>
   </div>
 </div>
     
