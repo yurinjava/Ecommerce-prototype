@@ -1,9 +1,11 @@
 <?php 
 $action = "select";
 require 'ecommerce-private/product-controller.php';
+//require 'ecommerce-private/search-engine.php';
 //echo '<pre>';
 //print_r($products);
 //echo '</pre>';
+//print_r($_GET);
 /////////////SORTING OPTIONS//////////////////////////////
 if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
     //echo "<script> alert('Sorting by lowest price') </script>";
@@ -39,8 +41,9 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5">
         <a class="navbar-brand" href="home.php">ProtoType</a>
         
-            <form class="form-inline w-75" >
-                <input class="form-control mx-auto mr-sm-2 w-75" type="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline w-75" method="get" action="home.php">
+                <input class="form-control mx-auto mr-sm-2 w-75" name="search" type="search" placeholder="<?php  if(isset($_GET['search'])){echo $_GET['search'];}else{ echo 'search';} ?>" aria-label="Search">
+                <input type="hidden" name="action" value="search">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </form>
        
@@ -82,7 +85,7 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
     
             <div class="row">
                 <?php 
-                 if(isset($products)){
+                 if(!empty($products)){
                 foreach($products as $index=>$product){ ?>
                 <div class="col-md-4 mb-4 mt-4">
                     <div class="card  text-center">

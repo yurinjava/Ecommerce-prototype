@@ -1,8 +1,12 @@
 <?php 
 require 'product-model.php';
 require 'product-service.php';
+
 require 'connection.php';   
-  // print_R($_GET);
+   //print_R($_GET);
+   
+ 
+ 
     $action = isset($_GET['action']) ? $_GET['action'] : $action;
    
     if($action=='select'){
@@ -47,6 +51,16 @@ require 'connection.php';
         $productService->selectTools();
         $products = $productService->selectTools();
 
+    }else if($action =='search'){
+        $tobeSearched = $_GET['search'];
+        $product = new Product();
+        $connection = new Connection();
+        $productService = new productService($connection, $product);
+        $productService->search();
+        $products = $productService->search();
+        //echo "<script> alert('controlelr')</script>";
+        //echo $action;
     }
     
+   
 ?>

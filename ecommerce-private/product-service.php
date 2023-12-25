@@ -1,7 +1,4 @@
 <?php 
-
-
-
 class productService{
     private $connection;
     private $product;
@@ -11,6 +8,13 @@ class productService{
         $this->product = $product;
     }
 
+    public function search(){
+    $query ="select product_img, product_id, product_name, product_price, product_relevance from products where product_name like '%" . $_GET['search']. "%'";
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
     public function select(){
         $query ='select product_img, product_id, product_name, product_price, product_relevance from products';
         $stmt = $this->connection->prepare($query);
