@@ -44,7 +44,7 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
             <form class="form-inline w-75" method="get" action="home.php">
                 <input class="form-control mx-auto mr-sm-2 w-75" name="search" type="search" placeholder="<?php  if(isset($_GET['search'])){echo $_GET['search'];}else{ echo 'search';} ?>" aria-label="Search">
                 <input type="hidden" name="action" value="search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn my-2 my-sm-0" type="submit"><img src="assets/icons/search-white.png" alt=""></button>
             </form>
        
         <div class="collapse navbar-collapse" id="navbarNav">
