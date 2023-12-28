@@ -1,6 +1,8 @@
 <?php 
+session_start();
 $action = "select";
 require 'ecommerce-private/product-controller.php';
+
 //require 'ecommerce-private/search-engine.php';
 //echo '<pre>';
 //print_r($products);
@@ -53,7 +55,7 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
                     <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><img src="assets/icons/shopping-cart-white.png" class="icon"> Cart</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.php"><i class="fas fa-user"></i><img src="assets/icons/user-white.png" class="icon"> Login</a>
+                    <a class="nav-link" href="login.php"><i class="fas fa-user"></i><img src="assets/icons/user-white.png" class="icon"><?php if(isset($_SESSION['user_name'])){echo $_SESSION['user_name'];}else{echo 'Login';} ?></a>
                 </li>
             </ul>
         </div>

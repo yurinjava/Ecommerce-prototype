@@ -48,11 +48,11 @@
 </head>
 <body>
 
-<img src="your-image-path.jpg" alt="Logo" class="logo">
+<img src="assets/icons/logo.png" alt="Logo" class="logo">
 
 <div class="login-form">
     <h2 class="login-title">Logon</h2>
-    <form  method="post" action="ecommerce-private/logon-validation.php">
+    <form  method="post" action="ecommerce-private/login-control/logon-validation.php">
         <div class="form-group">
             <label for="email">Email address:</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
@@ -65,6 +65,6 @@
     </form>
     <p class="quote">First time? <a href="create-account.php">Create your account.</a></p>
 </div>
-
+<footer class="text-center text-secondary"> <p>© 2023 ProtoType. All Rights Reserved.</p></footer>
 </body>
 </html>
