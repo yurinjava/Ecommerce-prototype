@@ -43,20 +43,31 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5">
         <a class="navbar-brand" href="home.php">ProtoType</a>
         
-            <form class="form-inline w-75" method="get" action="home.php">
-                <input class="form-control mx-auto mr-sm-2 w-75" name="search" type="search" placeholder="<?php  if(isset($_GET['search'])){echo $_GET['search'];}else{ echo 'search';} ?>" aria-label="Search">
+            <form class="form-inline w-75 mx-auto" method="get" action="home.php">
+                <input class="form-control mx-auto mr-sm-2 w-50" name="search" type="search" placeholder="<?php  if(isset($_GET['search'])){echo $_GET['search'];}else{ echo 'search';} ?>" aria-label="Search">
                 <input type="hidden" name="action" value="search">
                 <button class="btn my-2 my-sm-0" type="submit"><img src="assets/icons/search-white.png" alt=""></button>
             </form>
        
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
+                
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><img src="assets/icons/shopping-cart-white.png" class="icon"> Cart</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.php"><i class="fas fa-user"></i><img src="assets/icons/user-white.png" class="icon"><?php if(isset($_SESSION['user_name'])){echo $_SESSION['user_name'];}else{echo 'Login';} ?></a>
-                </li>
+
+                <?php
+                if(isset($_SESSION['user_name'])) {
+                    echo " <li class='nav-item'>
+                                <a class='nav-link' href='user_page.php'><i class='fas fa-user'></i><img src='assets/icons/user-white.png' class='icon'>".$_SESSION['user_name']."</a>
+                            </li>";
+                }else{
+                    echo "<li class='nav-item'>
+                            <a class='nav-link' href='login.php'><i class='fas fa-user'></i><img src='assets/icons/enter-white.png' class='icon'>Login</a>
+                        </li>";
+                }
+                ?>
+                
             </ul>
         </div>
     </nav>
