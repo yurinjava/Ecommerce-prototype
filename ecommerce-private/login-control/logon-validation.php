@@ -3,7 +3,8 @@ session_start();
 //echo '<pre';
 //print_r($_POST);
 //echo '</pre>';
-
+//$teste_pass = password_hash($_POST['password'], PASSWORD_BCRYPT);
+//echo $teste_pass;
 $pdo = new PDO("mysql:host=localhost;dbname=ecommerce_prototype", 'root', '');
 
 $email = $_POST['email'];
