@@ -5,7 +5,10 @@ session_start();
 //echo '</pre>';
 //$teste_pass = password_hash($_POST['password'], PASSWORD_BCRYPT);
 //echo $teste_pass;
-$pdo = new PDO("mysql:host=localhost;dbname=ecommerce_prototype", 'root', '');
+require '../connection.php';
+$connection = new Connection();
+//print_r($connection);
+$pdo = $connection->connect();
 
 $email = $_POST['email'];
 $stmt = $pdo->prepare("SELECT user_name, user_email, user_password FROM user WHERE user_email LIKE :email");
