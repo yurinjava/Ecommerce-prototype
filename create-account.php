@@ -9,17 +9,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Two-Section Form</title>
+    <title>ProtoType - sign in</title>
+    <link rel="icon" href="assets/icons/site-icon.png">
+    <link rel="stylesheet" href="style/createAccount.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
 </head>
 <script>
+    function stepBack(){
+        document.getElementById('personalData').style["display"] = "";
+        document.getElementById('address').style["display"] = "none";
+        document.getElementById('submit').style["display"] = "none";
+        document.getElementById('returnAddress').style["display"] = "none";
+    }
+
     function nextStep(){
         document.getElementById('personalData').style["display"] = "none";
         document.getElementById('address').style["display"] = "";
         document.getElementById('submit').style["display"] = "";
+        document.getElementById('returnAddress').style["display"] = "";
          }
+  
+   
 </script>
-<body>
+<body  >
+
+
 
 <div class="container mb-3">
     <div class="row justify-content-center mt-5 ">
@@ -27,7 +43,7 @@
             <form action="ecommerce-private/login-control/register.php" method="post">
                 <!-- Section 1 -->
                 <div class="form-group " id="personalData" >
-                    <h2>Informacoes pessoais</h2>
+                    <h2>Personal Data</h2>
                     <label for="nomeCompleto">Nome Completo:</label>
                     <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" required>
 
@@ -40,24 +56,24 @@
                     <label for="confirmarSenha">Confirmar Senha:</label>
                     <input type="password" class="form-control w-25" id="confirmarSenha" name="confirmarSenha" required>
                     
-                    <div class="col-md-6">
-                    <a href="login.php" class="btn btn-danger mt-2">Voltar</a>
-                    <button class="btn btn-success mt-2" onclick="nextStep()">Proximo</button>
+                  
+                    <a href="login.php" class="btn btn-danger mt-2">Return</a>
+                    <button class="btn btn-success mt-2" style=" position: absolute; right: 40px;" onclick="nextStep()">Next</button>
                    
-                    </div>
+                    
                 </div>
 
                 <!-- Section 2 -->
                 <div class="form-group"id="address" style="display: none;">
-                    <h2>Endereço</h2>
+                    <h2>Address</h2>
                     <label for="cep">CEP:</label>
                     <input type="text" class="form-control w-25" id="cep" name="cep" required>
 
                     <div class="form-row">
-                    <label for="endereco">Endereço:</label>
+                    <label for="endereco">Address:</label>
                     <input type="text" class="form-control" id="endereco" name="endereco" required>
 
-                    <label for="complemento">Complemento:</label>
+                    <label for="complemento">Complement:</label>
                     <input type="text" class="form-control" id="complemento" name="complemento">
                     </div>
 
@@ -65,32 +81,54 @@
 
                     <div class="form-group col-md-6 mt-2">
                     <label for="uf">UF:</label>
-
                         <select name="uf" id="uf">
-                        <option value="MG">MG</option>
-                        <option value="SP">SP</option>
-                        <option value="RJ">RJ</option>
-                        <option value="RO">RO</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
                         </select>
-                    </div>
 
-                    <label for="bairro">Bairro:</label>
+                        <br>
+                    <label for="bairro">District:</label>
                     <input type="text" class="form-control w-50" id="bairro" name="bairro" required>
 
                  
 
                     
 
-                    <label for="cidade">Cidade:</label>
+                    <label for="cidade">City:</label>
                     <input type="text" class="form-control w-50" id="cidade" name="cidade" required>
                 </div>
-
-                <button type="submit" id="submit" style="display: none;" class="btn btn-primary" >Submit</button>
+                 <button  id="returnAddress" onclick="stepBack()" style="display: none; position: absolute; bottom:30px; left: 50px;" class="btn btn-danger" >Back</button>
+                <button type="submit" id="submit" style="display: none; position: absolute; bottom:30px; right: 40px;" class="btn btn-primary" >Submit</button>
             </form>
         </div>
     </div>
 </div>
-<footer class="text-center text-secondary mt-3"> <p>© 2023 ProtoType. All Rights Reserved.</p></footer>
+<footer class="text-center text-secondary mt-3" id="footerCreateAccount"> <p>© 2023 ProtoType. All Rights Reserved.</p></footer>
 
 
 
