@@ -1,0 +1,28 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #b4b5b6;
+    
+}
+
+#footerCreateAccount{
+    margin-top: 100px;
+    padding-top: 70px;
+}
+
+form{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+.logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+#cidade{
+    margin-bottom: 70px;
+}
