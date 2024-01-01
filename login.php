@@ -61,7 +61,9 @@
             <label for="password">Password:</label>
             <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Log In</button>
+        <a href="home.php" class="btn btn-danger w-25">return</a>
+        <button type="submit" class="btn btn-primary w-50">Log In</button>
+        
     </form>
     <p class="quote">First time? <a href="create-account.php">Create your account.</a></p>
 </div>

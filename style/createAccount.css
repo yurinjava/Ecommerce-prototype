@@ -1,17 +1,16 @@
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #b4b5b6;
-    
+    background-color: #f8f9fa;
 }
 
 #footerCreateAccount{
-    margin-top: 100px;
-    padding-top: 70px;
+    margin-top: 80px;
+    padding-top: 50px;
 }
 
 form{
@@ -21,7 +20,9 @@ form{
 .logo {
     max-width: 100%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    margin-top: 80px;
+   
 }
 #cidade{
     margin-bottom: 70px;

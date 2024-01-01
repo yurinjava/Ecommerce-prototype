@@ -36,7 +36,7 @@
 <body  >
 
 
-
+<img src="assets/icons/logo.png" alt="Logo" class="logo">
 <div class="container mb-3">
     <div class="row justify-content-center mt-5 ">
         <div class="col-md-6 ">
