@@ -91,7 +91,7 @@ if(isset($_SESSION['authentication']) && $_SESSION['authentication']==1){
                     <div class="card-body">
                         <h5 class="card-title">Your Shopping Cart</h5>
                         <p class="card-text">View and manage items in your shopping cart.</p>
-                        <a href="#" class="btn btn-secondary">View Shopping Cart</a>
+                        <a href="cart.php" class="btn btn-secondary">View Shopping Cart</a>
                     </div>
                 </div>
             </div>

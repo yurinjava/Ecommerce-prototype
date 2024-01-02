@@ -53,7 +53,7 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
             <ul class="navbar-nav ml-auto">
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><img src="assets/icons/shopping-cart-white.png" class="icon"> Cart</a>
+                    <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i><img src="assets/icons/shopping-cart-white.png" class="icon"> Cart</a>
                 </li>
 
                 <?php
@@ -103,6 +103,7 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
                 <div class="col-md-4 mb-4 mt-4">
                     <div class="card  text-center">
                         <!-- Product Image -->
+                        <form action="ecommerce-private/cart-control/stack-cart.php" method="post">
                         <img src="assets/images/<?= $product->product_img; ?>" class="product-pic  mx-auto d-block" >
                         <div class="card-body">
                             <!-- Product Title -->
@@ -112,9 +113,19 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
                             </h5>
                             <!-- Product Price -->
                             <p class="card-text">R$ <?= $product->product_price; ?></p>
+
+                            <input type="hidden" name="product_id" value="<?= $product->product_id?>">
+                            <input type="hidden" name="product_name" value="<?= $product->product_name?>">
+                            <input type="hidden" name="product_img" value="<?= $product->product_img?>">
+                            <input type="hidden" name="product_price" value="<?= $product->product_price?>">
+
                             <!-- Add to Cart Button -->
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                            <button type="submit"  class="btn btn-primary">Add to Cart</button>
                         </div>
+                        <!--/////////////////////// -->
+                       
+                        </form>
+                        
                     </div>
                 </div>
             <?php } }else{
@@ -123,18 +134,7 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
             <!-- Repeat similar structure for other products -->
             
     
-           
-
-            
-
-           
-           
-
-           
-
-            
-
-            
+      
         </div>
         <footer class="text-center text-secondary"> <p>© 2023 ProtoType. All Rights Reserved.</p></footer>
     </div>
