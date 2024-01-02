@@ -13,7 +13,7 @@ $totalprice = null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <!-- Add Bootstrap CSS link -->
+    <link rel="icon" href="assets/icons/site-icon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         
@@ -29,11 +29,6 @@ $totalprice = null;
             border: 1px solid #ccc;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .delete-button {
-            background-color: #f44336;
-            color: #fff;
         }
 
         .order-now-button {
@@ -93,13 +88,15 @@ $totalprice = null;
         </thead>
         <tbody>
             <!-- ////////////////-->
-            <?php foreach($_SESSION['products'] as $product){  
+            <?php if(empty($_SESSION['products'])){
+                echo "<div class='card mx-auto text-center mt-5'><h1>Your cart is empty</h1></div>";
+            }else{ foreach($_SESSION['products'] as $product){  
                $totalprice += $product['price'] ?>
             <tr>
                 
                 <td><img src="assets/images/<?= $product['img'] ?>" alt="Item Image" style="max-width: 50px;"></td>
                 <td>
-                    <select class="form-control">
+                    <select >
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -109,9 +106,9 @@ $totalprice = null;
                 </td>
                 <td><?= $product['name'] ?></td>
                 <td>R$<?= $product['price'] ?></td>
-                <td><button class="btn btn-sm delete-button">Delete</button></td>
+                <td><button class="btn btn-sm delete-button"><img src="assets/icons/trash.png" alt=""></button></td>
             </tr>
-            <?php    }    ?>
+            <?php    }}    ?>
             <!--///////////// -->
         </tbody>
     </table>
@@ -124,6 +121,7 @@ $totalprice = null;
 </div>
 <div class="w-100 text-left" >
 <a href="javascript:history.go(-1)" id="return" class="btn btn-danger  mt-3">Return</a>
+<a href="home.php" class="btn btn-secondary mt-3">Add more items</a>
 </div>
 
 <footer class="text-center text-secondary"> <p>© 2023 ProtoType. All Rights Reserved.</p></footer>
