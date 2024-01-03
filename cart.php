@@ -1,7 +1,7 @@
 <?php
 session_start(); 
 //echo '<pre>';
-//print_r($_SESSION);
+//print_r($_SESSION['products']);
 //echo '</pre>';
 //require('ecommerce-private/product-model.php');
 $totalprice = null;
@@ -97,6 +97,7 @@ $totalprice = null;
                 <td><img src="assets/images/<?= $product['img'] ?>" alt="Item Image" style="max-width: 50px;"></td>
                 <td>
                     <select >
+                        <option selected="selected"><?= $product['quantity'] ?></option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>

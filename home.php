@@ -118,7 +118,7 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
                             <input type="hidden" name="product_name" value="<?= $product->product_name?>">
                             <input type="hidden" name="product_img" value="<?= $product->product_img?>">
                             <input type="hidden" name="product_price" value="<?= $product->product_price?>">
-
+                            <input type="hidden" name="product_quantity" value="1">
                             <!-- Add to Cart Button -->
                             <button type="submit"  class="btn btn-primary">Add to Cart</button>
                         </div>
