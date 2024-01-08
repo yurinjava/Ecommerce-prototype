@@ -5,6 +5,20 @@ session_start();
 //echo '</pre>';
 //require('ecommerce-private/product-model.php');
 $totalprice = null;
+$remove = 0;
+if(isset($_GET['remove'])){
+    $remove = $_GET['remove'];
+    foreach($_SESSION['newproducts'] as $key => $toberemoved){
+        if($toberemoved['id'] == $remove){
+            unset($_SESSION['newproducts'][$key]);
+        }
+    }
+    foreach($_SESSION['products'] as $key => $toberemoved2){
+        if($toberemoved['id'] == $remove){
+            unset($_SESSION['products'][$key]);
+        }
+    }
+}
 
 
 ?>
@@ -78,6 +92,7 @@ $totalprice = null;
 
 
 <div class="container cart-container">
+  
     <table class="table">
         <thead>
             <tr>
@@ -90,37 +105,42 @@ $totalprice = null;
         </thead>
         <tbody>
             <!-- ////////////////-->
+           
             <?php if(empty($_SESSION['newproducts'])){
                 echo "<div class='card mx-auto text-center mt-5'><h1>Your cart is empty</h1></div>";
             }else{ foreach($_SESSION['newproducts'] as $product){  
-               $totalprice += $product['price'] ?>
+               $totalprice += $product['price'] * $product['quantity'] ?>
             <tr>
-                
+                <script>
+                    
+                </script>
                 <td><img src="assets/images/<?= $product['img'] ?>" alt="Item Image" style="max-width: 50px;"></td>
                 <td>
-                    <select >
-                    <option selected="selected"><?= $product['quantity'] ?></option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        
+                    <select  >
+                    <option selected="selected" value="<?= $product['quantity'] ?>"><?= $product['quantity'] ?></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>   
                 </td>
                 <td><?= $product['name'] ?></td>
                 <td>R$<?= $product['price'] ?></td>
-                <td><button class="btn btn-sm delete-button"><img src="assets/icons/trash.png" alt=""></button></td>
+                <td><a class="btn btn-sm delete-button" href="?remove=<?= $product['id'] ?>"><img src="assets/icons/trash.png" alt=""></a></td>
             </tr>
+
             <?php    }}    ?>
             <!--///////////// -->
         </tbody>
     </table>
-
+   
+   <form action=""></form>
     <div class="text-right">
         <p>Total Price: R$ <?=  $totalprice ?></p>
         <button class="btn order-now-button ">Order Now</button>
     </div>
-    
+   
 </div>
 <div class="w-100 text-left" >
 <a href="javascript:history.go(-1)" id="return" class="btn btn-danger  mt-3">Return</a>
