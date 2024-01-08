@@ -1,10 +1,16 @@
 <?php
 session_start(); 
-//echo '<pre>';
-//print_r($_SESSION['products']);
-//echo '</pre>';
+echo '<pre>';
+print_r($_SESSION['newproducts']);
+echo '</pre>';
 //require('ecommerce-private/product-model.php');
 $totalprice = null;
+
+foreach($_SESSION['newproducts'] as $pro){
+    echo '<pre>';
+print_r($pro);
+echo '</pre>';
+}
 ?>
 
 <!DOCTYPE html>
@@ -88,22 +94,22 @@ $totalprice = null;
         </thead>
         <tbody>
             <!-- ////////////////-->
-            <?php if(empty($_SESSION['products'])){
+            <?php if(empty($_SESSION['newproducts'])){
                 echo "<div class='card mx-auto text-center mt-5'><h1>Your cart is empty</h1></div>";
-            }else{ foreach($_SESSION['products'] as $product){  
+            }else{ foreach($_SESSION['newproducts'] as $product){  
                $totalprice += $product['price'] ?>
             <tr>
                 
                 <td><img src="assets/images/<?= $product['img'] ?>" alt="Item Image" style="max-width: 50px;"></td>
                 <td>
                     <select >
-                        <option selected="selected"><?= $product['quantity'] ?></option>
+                    <option selected="selected"><?= $product['quantity'] ?></option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
                         
-                    </select>
+                    </select>   
                 </td>
                 <td><?= $product['name'] ?></td>
                 <td>R$<?= $product['price'] ?></td>
