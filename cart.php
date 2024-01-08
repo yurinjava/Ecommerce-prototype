@@ -1,16 +1,12 @@
 <?php
 session_start(); 
-echo '<pre>';
-print_r($_SESSION['newproducts']);
-echo '</pre>';
+//echo '<pre>';
+//print_r($_SESSION['newproducts']);
+//echo '</pre>';
 //require('ecommerce-private/product-model.php');
 $totalprice = null;
 
-foreach($_SESSION['newproducts'] as $pro){
-    echo '<pre>';
-print_r($pro);
-echo '</pre>';
-}
+
 ?>
 
 <!DOCTYPE html>

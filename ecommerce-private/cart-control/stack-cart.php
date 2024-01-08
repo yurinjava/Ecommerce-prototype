@@ -51,7 +51,7 @@ foreach ($_SESSION['products'] as $product) {
     $productId = $product['id'];
     $productName = $product['name'];
     $productPrice = $product['price'];
-
+    $productImg = $product['img'];
     // Check if the product id has already been added to newProducts
     if (!isset($newProducts[$productId])) {
         // Get the quantity from the productCounts array
@@ -62,7 +62,8 @@ foreach ($_SESSION['products'] as $product) {
             'id' => $productId,
             'name' => $productName,
             'price' => $productPrice,
-            'quantity' => $quantity
+            'quantity' => $quantity,
+            'img' => $productImg
         );
 
         // Add the new product to the newProducts array
@@ -88,7 +89,7 @@ $_SESSION['newproducts'] = $newProducts;
 echo '<pre>';
 print_r($_SESSION['newproducts']);
 echo '</pre>';
-//header('location: ../../cart.php');
+header('location: ../../cart.php');
 ?>
 
 
