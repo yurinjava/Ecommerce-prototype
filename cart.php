@@ -3,7 +3,7 @@ session_start();
 //echo '<pre>';
 //print_r($_SESSION['newproducts']);
 //echo '</pre>';
-//require('ecommerce-private/product-model.php');
+require('ecommerce-private/product-model.php');
 $totalprice = null;
 $remove = 0;
 if(isset($_GET['remove'])){
@@ -116,14 +116,15 @@ if(isset($_GET['remove'])){
                 </script>
                 <td><img src="assets/images/<?= $product['img'] ?>" alt="Item Image" style="max-width: 50px;"></td>
                 <td>
-                    <select  >
-                    <option selected="selected" value="<?= $product['quantity'] ?>"><?= $product['quantity'] ?></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>   
+                    <div class="group d-flex">
+                        <div class="input-group-prepend">
+                            <a class="btn btn-outline-secondary"  href="test-cart.php?id=<?= $product['id'] ?>" type="button" id="minusBtn">-</a>
+                        </div>
+                        <input type="text" class="text-center"  style="width: 30px;" value="<?= $product['quantity'] ?>" id="quantityInput">
+                        <div class="input-group-append">
+                            <a class="btn btn-outline-secondary" type="button" id="plusBtn">+</a>
+                        </div>
+                    </div>
                 </td>
                 <td><?= $product['name'] ?></td>
                 <td>R$<?= $product['price'] ?></td>

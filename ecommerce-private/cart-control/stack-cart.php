@@ -5,20 +5,23 @@ if(!isset( $_SESSION['authentication'])){
     header('Location: ../../login.php?loginFirts-1');
     exit();
 }
+if(isset($_POST['product_id'])){
+    unset($_SESSION['newproducts']);
+    $productId = $_POST['product_id'];
+    $productName = $_POST['product_name'];
+    $productImg = $_POST['product_img'];
+    $productPrice = $_POST['product_price'];
+    
+    
+    
+    $_SESSION['products'][] = array(
+        'id'   => $productId,
+        'name' => $productName,
+        'price' => $productPrice,
+        'img' => $productImg,
+    );
+}
 
-$productId = $_POST['product_id'];
-$productName = $_POST['product_name'];
-$productImg = $_POST['product_img'];
-$productPrice = $_POST['product_price'];
-
-
-
-$_SESSION['products'][] = array(
-    'id'   => $productId,
-    'name' => $productName,
-    'price' => $productPrice,
-    'img' => $productImg,
-);
     
       
 
@@ -83,9 +86,9 @@ $newProducts = array_values($newProducts); // Reset array keys if needed
 
 
 $_SESSION['newproducts'] = $newProducts;
-//echo '<pre>';
-//print_r($_SESSION['products']);
-//echo '</pre>';
+echo '<pre>';
+print_r($_SESSION['products']);
+echo '</pre>';
 echo '<pre>';
 print_r($_SESSION['newproducts']);
 echo '</pre>';
