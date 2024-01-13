@@ -120,7 +120,7 @@ if(isset($_GET['remove'])){
                         <div class="input-group-prepend">
                             <a class="btn btn-outline-secondary"  href="test-cart.php?id=<?= $product['id'] ?>" type="button" id="minusBtn">-</a>
                         </div>
-                        <input type="text" class="text-center"  style="width: 30px;" value="<?= $product['quantity'] ?>" id="quantityInput">
+                        <input type="text" class="text-center" readonly style="width: 30px;" value="<?= $product['quantity'] ?>" id="quantityInput">
                         <div class="input-group-append">
                             <a class="btn btn-outline-secondary" type="button" id="plusBtn">+</a>
                         </div>
