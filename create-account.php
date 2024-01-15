@@ -30,8 +30,33 @@
         document.getElementById('submit').style["display"] = "";
         document.getElementById('returnAddress').style["display"] = "";
          }
-  
-   
+
+         function getDadosEderecoPorCep(cep){
+			let url = 'https://viacep.com.br/ws/'+cep+'/json/'
+			console.log(url)
+			let xmlHttp = new XMLHttpRequest()
+			xmlHttp.open('GET',url)
+			xmlHttp.onreadystatechange = ()=>{
+				if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+					let dadosJSONText =  xmlHttp.responseText
+					let dadosJSONObj = JSON.parse(dadosJSONText)
+
+					document.getElementById('endereco').value=dadosJSONObj.logradouro
+					console.log(dadosJSONObj.logradouro)
+
+					document.getElementById('bairro').value= dadosJSONObj.bairro
+					console.log(dadosJSONObj.bairro)
+
+					document.getElementById('cidade').value = dadosJSONObj.localidade
+					console.log(dadosJSONObj.localidade)
+
+					document.getElementById('uf').value = dadosJSONObj.uf
+					console.log(dadosJSONObj.uf)
+				}
+			}
+			xmlHttp.send()
+		}
+        
 </script>
 <body  >
 
@@ -67,7 +92,7 @@
                 <div class="form-group"id="address" style="display: none;">
                     <h2>Address</h2>
                     <label for="cep">CEP:</label>
-                    <input type="text" class="form-control w-25" id="cep" name="cep" required>
+                    <input type="text" onblur="getDadosEderecoPorCep(this.value)" class="form-control w-25" id="cep" name="cep" required>
 
                     <div class="form-row">
                     <label for="endereco">Address:</label>
