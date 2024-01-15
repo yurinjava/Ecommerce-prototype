@@ -18,5 +18,5 @@ echo '</pre>';
 echo '<pre>';
 print_r($_SESSION['newproducts']);
 echo '</pre>';
-header('location: ecommerce-private/cart-control/stack-cart.php');
+header('location: stack-cart.php');
 ?>

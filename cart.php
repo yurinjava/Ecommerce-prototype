@@ -118,11 +118,11 @@ if(isset($_GET['remove'])){
                 <td>
                     <div class="group d-flex">
                         <div class="input-group-prepend">
-                            <a class="btn btn-outline-secondary"  href="test-cart.php?id=<?= $product['id'] ?>" type="button" id="minusBtn">-</a>
+                            <a class="btn btn-outline-secondary"  href="ecommerce-private/cart-control/decrease-cart.php?id=<?= $product['id'] ?>" type="button" id="minusBtn">-</a>
                         </div>
                         <input type="text" class="text-center" readonly style="width: 30px;" value="<?= $product['quantity'] ?>" id="quantityInput">
                         <div class="input-group-append">
-                            <a class="btn btn-outline-secondary" href="decrease-cart.php?id=<?= $product['id'] ?>" type="button" id="plusBtn">+</a>
+                            <a class="btn btn-outline-secondary" href="ecommerce-private/cart-control/increase-cart.php?id=<?= $product['id'] ?>" type="button" id="plusBtn">+</a>
                         </div>
                     </div>
                 </td>
