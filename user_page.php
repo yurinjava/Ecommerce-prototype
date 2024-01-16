@@ -2,6 +2,7 @@
 session_start();
 if(isset($_SESSION['authentication']) && $_SESSION['authentication']==1){
 //echo $_SESSION['authentication'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,9 @@ if(isset($_SESSION['authentication']) && $_SESSION['authentication']==1){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style/user_page.css">
 </head>
+<style>
+    
+</style>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5">
@@ -29,7 +33,7 @@ if(isset($_SESSION['authentication']) && $_SESSION['authentication']==1){
             <ul class="navbar-nav ml-auto">
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><img src="assets/icons/shopping-cart-white.png" class="icon"> Cart</a>
+                    <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i><img src="assets/icons/shopping-cart-white.png" class="icon"> Cart</a>
                 </li>
 
                 <?php
@@ -47,46 +51,41 @@ if(isset($_SESSION['authentication']) && $_SESSION['authentication']==1){
             </ul>
         </div>
     </nav>
+<div class="container bg-light">
+<h2 class="text-center "><?php echo "Hello ".$_SESSION['user_name']."!"; ?></h2>
 
-    <div class="container ">
-        <h2 class="text-center mb-4"><?php echo "Hello ".$_SESSION['user_name']."!"; ?></h2>
+<div class="row">
+    
+<div class="container mt-0 col" style="width: 50%; margin-left: 0">
+       
 
         <div class="row">
             <!-- Account Information Option -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Account Information</h5>
                         <p class="card-text">View and update your account details.</p>
-                        <a href="#" class="btn btn-secondary">Go to Account</a>
+                        <a href="user-purchases.html" class="btn btn-secondary">Go to Account</a>
                     </div>
                 </div>
             </div>
 
             <!-- Your Purchases Option -->
-            <div class="col-md-6">
+            <div class="col-md-12 mt-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Your Purchases</h5>
                         <p class="card-text">View a history of your purchases.</p>
-                        <a href="#" class="btn btn-secondary">View Purchases</a>
+                        <a href="user-purchases.html" class="btn btn-secondary">View Purchases</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Your Address Option -->
-            <div class="col-md-6 mt-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Your Address</h5>
-                        <p class="card-text">Manage your shipping addresses.</p>
-                        <a href="#" class="btn btn-secondary">Manage Addresses</a>
-                    </div>
-                </div>
-            </div>
+          
 
             <!-- Your Shopping Cart Option -->
-            <div class="col-md-6 mt-4">
+            <div class="col-md-12 mt-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Your Shopping Cart</h5>
@@ -98,8 +97,16 @@ if(isset($_SESSION['authentication']) && $_SESSION['authentication']==1){
         </div>
         <a href="home.php" class="btn btn-dark mt-5 mb-5">Return</a>
         <a href="ecommerce-private/login-control/logout.php" class="btn btn-danger mt-5 mb-5">Logout</a>
-        <footer class="text-center text-secondary"> <p>© 2023 ProtoType. All Rights Reserved.</p></footer>
+   
     </div>
+    <div class="col text-center">
+        
+<img class="w-75" src="assets/images/amongus.png" alt="">
+    </div>
+</div>
+    <footer class="text-center text-secondary"> <p>© 2023 ProtoType. All Rights Reserved.</p></footer>
+</div>
+   
 
     
 

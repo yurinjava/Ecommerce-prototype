@@ -1,5 +1,20 @@
 <?php 
 
+
+if(isset($_GET['email']) && $_GET['email'] == 'incorrect'){
+    echo'    
+    <div  id="alert">
+    <p class="mb-4">Email incorrect!</p>
+    <a class="btn btn-primary" onclick="displaynt()" >Got it!</a>
+</div>';
+};
+if(isset($_GET['password']) && $_GET['password'] == 'incorrect'){
+    echo'    
+    <div  id="alert2">
+    <p class="mb-4">Password incorrect!</p>
+    <a class="btn btn-primary" onclick="displaynt2()" >Got it!</a>
+</div>';
+};
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +25,17 @@
     <link rel="icon" href="assets/icons/site-icon.png">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+       
+        function displaynt(){
+            let alert = document.getElementById('alert');
+            alert.style.display = "none";
+        }
+        function displaynt2(){
+            let alert = document.getElementById('alert2');
+            alert.style.display = "none";
+        }
+    </script>
     <style>
         body {
             display: flex;
@@ -19,7 +45,20 @@
             height: 100vh;
             background-color: #f8f9fa;
         }
-
+                #alert, #alert2 {
+            background-color: #f8d7da; /* Light red background */
+            color: #721c24; /* Dark red text color */
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999; /* Set a high z-index value to ensure the div appears in front of everything */
+            display: block;
+        }
         .login-form {
             width: 300px;
             padding: 15px;
