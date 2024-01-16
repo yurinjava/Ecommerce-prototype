@@ -139,7 +139,7 @@ if(isset($_GET['remove'])){
    <form action=""></form>
     <div class="text-right">
         <p>Total Price: R$ <?=  $totalprice ?></p>
-        <button class="btn order-now-button ">Order Now</button>
+        <a  href ="ecommerce-private/mailer/process-email.php" class="btn order-now-button ">Order Now</a>
     </div>
    
 </div>
