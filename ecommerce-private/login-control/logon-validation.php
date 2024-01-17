@@ -30,6 +30,7 @@ if($_POST['email'] == $result[0]->user_email){
       $_SESSION['authentication']=1;
       $_SESSION['user_name']=$result[0]->user_name;
       $_SESSION['user_id']=$result[0]->user_id;
+      $_SESSION['user_email']=$result[0]->user_email;
       header('location: ../../home.php');
      
    }else{

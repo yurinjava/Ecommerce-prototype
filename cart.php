@@ -131,14 +131,15 @@ if(isset($_GET['remove'])){
                 <td><a class="btn btn-sm delete-button" href="?remove=<?= $product['id'] ?>"><img src="assets/icons/trash.png" alt=""></a></td>
             </tr>
 
-            <?php    }}    ?>
+            <?php    }} 
+            $_SESSION['total_price']  = $totalprice; ?>
             <!--///////////// -->
         </tbody>
     </table>
    
    <form action=""></form>
     <div class="text-right">
-        <p>Total Price: R$ <?=  $totalprice ?></p>
+        <p>Total: R$ <?=  $totalprice ?></p>
         <a  href ="ecommerce-private/mailer/process-email.php" class="btn order-now-button ">Order Now</a>
     </div>
    

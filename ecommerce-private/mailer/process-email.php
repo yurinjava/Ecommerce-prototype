@@ -29,21 +29,21 @@ try {
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = '';                     //SMTP username
-    $mail->Password   = '';                               //SMTP password
+    $mail->Password   =  '';                               //SMTP password
     $mail->SMTPSecure = 'TLS';            //Enable implicit TLS encryption
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('from@example.com', 'Mailer');
-    $mail->addAddress('', 'Joe User');     //Add a recipient
-    $mail->addAddress('ellen@example.com');               //Name is optional
+    $mail->setFrom('marketplace@example.com', 'Mailer');
+    $mail->addAddress('', 'Admin');     //Add a recipient
+    $mail->addAddress($_SESSION['user_email']);               //Name is optional
     $mail->addReplyTo('info@example.com', 'Information');
     $mail->addCC('cc@example.com');
     $mail->addBCC('bcc@example.com');
 
     //Attachments
-    //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+    //$mail->addAttachment('../../assets/icons/logo.png', 'foto.');         //Add attachments
+    $mail->AddEmbeddedImage('../../assets/icons/logo.png', 'ProtoType.png');    //Optional name
 
     //Content
    
@@ -52,29 +52,32 @@ try {
    foreach($_SESSION['newproducts'] as $product){
     $message .= "
    
-    <h1 style='color: #333;'>".$product['name']." </h1>
+    <h3 style='color: #333;'>".$product['name']." </h3>
     <p style='color: #333;'>Quantity=".$product['quantity']."</p>
-    <p style='color: #333;'>Quantity=".$product['price']."</p>
+    <p style='color: #333;'>price=".$product['price']."</p>
 
 <br>";
 
 
     };
-
+    
     $body ="<body style='font-family: Arial, sans-serif; background-color: #f0f0f0;'>
+    <img src='cid:ProtoType.png' style='width:200px;'>
     <table style='width: 100%;'>
-    <h1>Novo Pedido ".$_SESSION['user_name']." </h1>
+    <h2>Order - ".$_SESSION['user_name']." </h2>
         <tr>
+
         <td style='padding: 10px; background-color: #ffffff;'>
             ".$message."
         </td>
         </tr>
+        <h2> Total - ".$_SESSION['total_price']."</h2>
     </table>
 </body>";
     print_r($message);
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = "New Order : ".$_SESSION['user_name'];
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+  
     $mail->Body    = $body;
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
@@ -82,10 +85,15 @@ try {
     echo 'Message has been sent';
     unset($_SESSION['products']);
     unset($_SESSION['newproducts']);
+    unset($_SESSION['total_price']);
    echo "<pre>";
    print_r($_SESSION);
    echo "</pre>";
    header('location: ../../cart.php?order=sent');
+
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo "<pre>";
+    print_r($_SESSION);
+    echo "</pre>";
 }
