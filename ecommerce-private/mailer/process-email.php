@@ -28,16 +28,16 @@ try {
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = '';                     //SMTP username
-    $mail->Password   =  '';                               //SMTP password
+    $mail->Username   = 'yourmailer@test.com';                     //SMTP username
+    $mail->Password   =  'your app password';                               //SMTP password
     $mail->SMTPSecure = 'TLS';            //Enable implicit TLS encryption
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('marketplace@example.com', 'Mailer');
-    $mail->addAddress('', 'Admin');     //Add a recipient
+    $mail->setFrom('', 'ProtoType Marketplace');
+    $mail->addAddress('youremail@test.com', 'Admin');     //Add a recipient
     $mail->addAddress($_SESSION['user_email']);               //Name is optional
-    $mail->addReplyTo('info@example.com', 'Information');
+    $mail->addReplyTo('youremail@test.com', 'Information');
     $mail->addCC('cc@example.com');
     $mail->addBCC('bcc@example.com');
 
@@ -61,17 +61,20 @@ try {
 
     };
     
-    $body ="<body style='font-family: Arial, sans-serif; background-color: #f0f0f0;'>
-    <img src='cid:ProtoType.png' style='width:200px;'>
-    <table style='width: 100%;'>
+    $body ="<body style='font-family: Arial, sans-serif; text-align=center;'>
+    <div style='width: 80%;'>
+    <img src='cid:ProtoType.png' style='width:200px; '>
+    </div>
+    
+    <table style='width: 100% display:flex; flex-direction:column;'>
     <h2>Order - ".$_SESSION['user_name']." </h2>
         <tr>
 
-        <td style='padding: 10px; background-color: #ffffff;'>
+        <td style='padding: 10px; '>
             ".$message."
         </td>
         </tr>
-        <h2> Total - ".$_SESSION['total_price']."</h2>
+        <h2> Total - R$".$_SESSION['total_price']."</h2>
     </table>
 </body>";
     print_r($message);
@@ -80,8 +83,10 @@ try {
   
     $mail->Body    = $body;
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
+if(isset($_SESSION['newproducts'])){
     $mail->send();
+}
+    
     echo 'Message has been sent';
     unset($_SESSION['products']);
     unset($_SESSION['newproducts']);
