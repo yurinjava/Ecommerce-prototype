@@ -51,8 +51,8 @@ if(isset($_SESSION['authentication']) && $_SESSION['authentication']==1){
             </ul>
         </div>
     </nav>
-<div class="container bg-light">
-<h2 class="text-center "><?php echo "Hello ".$_SESSION['user_name']."!"; ?></h2>
+<div class="container bg-light p-2">
+<h3 class="text-center"><?php echo "Hello ".$_SESSION['user_name']."!"; ?></h3>
 
 <div class="row">
     
@@ -72,7 +72,7 @@ if(isset($_SESSION['authentication']) && $_SESSION['authentication']==1){
             </div>
 
             <!-- Your Purchases Option -->
-            <div class="col-md-12 mt-4">
+            <div class="col-md-12 mt-2">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Your Purchases</h5>
@@ -85,7 +85,7 @@ if(isset($_SESSION['authentication']) && $_SESSION['authentication']==1){
           
 
             <!-- Your Shopping Cart Option -->
-            <div class="col-md-12 mt-4">
+            <div class="col-md-12 mt-2">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Your Shopping Cart</h5>
@@ -95,8 +95,8 @@ if(isset($_SESSION['authentication']) && $_SESSION['authentication']==1){
                 </div>
             </div>
         </div>
-        <a href="home.php" class="btn btn-dark mt-5 mb-5">Return</a>
-        <a href="ecommerce-private/login-control/logout.php" class="btn btn-danger mt-5 mb-5">Logout</a>
+        <a href="home.php" class="btn btn-dark mt-3 mb-3">Return</a>
+        <a href="ecommerce-private/login-control/logout.php" class="btn btn-danger mt-3 mb-3">Logout</a>
    
     </div>
     <div class="col text-center">
@@ -108,7 +108,10 @@ if(isset($_SESSION['authentication']) && $_SESSION['authentication']==1){
 </div>
    
 
-    
+<div style="z-index: 1; position: fixed; right:20px; bottom:20px;" >
+           <a href=""><img src="assets/icons/whatsapp.png" alt="">
+        </a> 
+        </div> 
 
 </body>
 

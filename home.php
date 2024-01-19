@@ -104,7 +104,7 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
                     <div class="card  text-center">
                         <!-- Product Image -->
                         <form action="ecommerce-private/cart-control/stack-cart.php" method="post">
-                        <img src="assets/images/<?= $product->product_img; ?>" class="product-pic  mx-auto d-block" >
+                        <img src="assets/images/<?= $product->product_img; ?>" class="product-pic  mx-auto d-block w-75" >
                         <div class="card-body">
                             <!-- Product Title -->
                             <h5 class="card-title">
@@ -136,9 +136,13 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
     
       
         </div>
+       
         <footer class="text-center text-secondary"> <p>© 2023 ProtoType. All Rights Reserved.</p></footer>
     </div>
-    
+    <div style="z-index: 1; position: fixed; right:20px; bottom:20px;" >
+           <a href=""><img src="assets/icons/whatsapp.png" alt="">
+        </a> 
+        </div>
  
 
     

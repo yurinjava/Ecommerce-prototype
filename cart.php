@@ -94,20 +94,12 @@ if(isset($_GET['remove'])){
 <div class="container cart-container">
   
     <table class="table">
-        <thead>
-            <tr>
-                <th>Picture</th>
-                <th>Quantity</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Action</th>
-            </tr>
-        </thead>
+     
         <tbody>
             <!-- ////////////////-->
            
             <?php if(empty($_SESSION['newproducts'])){
-                echo "<div class='card mx-auto text-center mt-5'><h1>Your cart is empty</h1></div>";
+                echo "<div class='card mx-auto text-center mt-5'><h1 class='text-secondary'>Your cart is empty</h1></div>";
             }else{ foreach($_SESSION['newproducts'] as $product){  
                $totalprice += $product['price'] * $product['quantity'] ?>
             <tr>
@@ -139,8 +131,10 @@ if(isset($_GET['remove'])){
    
    <form action=""></form>
     <div class="text-right">
+        <?php  if($totalprice!=null){ ?>
         <p>Total: R$ <?=  $totalprice ?></p>
         <a  href ="ecommerce-private/mailer/process-email.php" class="btn order-now-button ">Order Now</a>
+        <?php } ?>
     </div>
    
 </div>
@@ -150,6 +144,9 @@ if(isset($_GET['remove'])){
 </div>
 
 <footer class="text-center text-secondary"> <p>© 2023 ProtoType. All Rights Reserved.</p></footer>
-
+<div style="z-index: 1; position: fixed; right:20px; bottom:20px;" >
+           <a href=""><img src="assets/icons/whatsapp.png" alt="">
+        </a> 
+        </div>
 </body>
 </html>
