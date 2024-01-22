@@ -28,16 +28,16 @@ try {
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'yourmailer@test.com';                     //SMTP username
-    $mail->Password   =  'your app password';                               //SMTP password
+    $mail->Username   = '';                     //SMTP username
+    $mail->Password   =  '';                               //SMTP password
     $mail->SMTPSecure = 'TLS';            //Enable implicit TLS encryption
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
     $mail->setFrom('', 'ProtoType Marketplace');
-    $mail->addAddress('youremail@test.com', 'Admin');     //Add a recipient
+    $mail->addAddress('', 'Admin');     //Add a recipient
     $mail->addAddress($_SESSION['user_email']);               //Name is optional
-    $mail->addReplyTo('youremail@test.com', 'Information');
+    $mail->addReplyTo('', 'Information');
     $mail->addCC('cc@example.com');
     $mail->addBCC('bcc@example.com');
 
@@ -53,8 +53,8 @@ try {
     $message .= "
    
     <h3 style='color: #333;'>".$product['name']." </h3>
-    <p style='color: #333;'>Quantity=".$product['quantity']."</p>
-    <p style='color: #333;'>price=".$product['price']."</p>
+    <p style='color: #333;'>Quantidade=".$product['quantity']."</p>
+    <p style='color: #333;'>Valor unitário=".$product['price']."</p>
 
 <br>";
 
@@ -76,7 +76,9 @@ try {
         </tr>
         <h2> Total - R$".$_SESSION['total_price']."</h2>
     </table>
-</body>";
+
+    <p> Entrega :".$_SESSION['state'].", ".$_SESSION['city'].", ".$_SESSION['district'].", ".$_SESSION['street'].", ".$_SESSION['number'].
+"</body>";
     print_r($message);
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = "New Order : ".$_SESSION['user_name'];
@@ -94,7 +96,11 @@ if(isset($_SESSION['newproducts'])){
    echo "<pre>";
    print_r($_SESSION);
    echo "</pre>";
-   header('location: ../../cart.php?order=sent');
+   header('location: ../../cart.php?order=sent'); 
+
+   echo '<pre>';
+   print_r($_SESSION);
+   echo '</pre>';
 
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

@@ -1,4 +1,14 @@
-<?php 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ProtoType - Login</title>
+    <link rel="icon" href="assets/icons/site-icon.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <?php 
 
 
 if(isset($_GET['email']) && $_GET['email'] == 'incorrect'){
@@ -15,16 +25,15 @@ if(isset($_GET['password']) && $_GET['password'] == 'incorrect'){
     <a class="btn btn-primary" onclick="displaynt2()" >Got it!</a>
 </div>';
 };
+
+if(isset($_GET['loginFirst']) && $_GET['loginFirst'] ==1){
+    echo'    
+    <div  id="alert3">
+    <p class="mb-4">You must be logged in before adding items to your cart!</p>
+    <a class="btn btn-primary" onclick="displaynt3()" >Got it!</a>
+</div>';
+}
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ProtoType - Login</title>
-    <link rel="icon" href="assets/icons/site-icon.png">
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script>
        
         function displaynt(){
@@ -33,6 +42,10 @@ if(isset($_GET['password']) && $_GET['password'] == 'incorrect'){
         }
         function displaynt2(){
             let alert = document.getElementById('alert2');
+            alert.style.display = "none";
+        }
+        function displaynt3(){
+            let alert = document.getElementById('alert3');
             alert.style.display = "none";
         }
     </script>
@@ -48,6 +61,20 @@ if(isset($_GET['password']) && $_GET['password'] == 'incorrect'){
                 #alert, #alert2 {
             background-color: #f8d7da; /* Light red background */
             color: #721c24; /* Dark red text color */
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999; /* Set a high z-index value to ensure the div appears in front of everything */
+            display: block;
+        }
+             #alert3 {
+            background-color: #AFE1AF; 
+            color: #4F7942; 
             padding: 20px;
             border-radius: 5px;
             text-align: center;

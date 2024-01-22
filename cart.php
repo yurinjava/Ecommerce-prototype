@@ -145,7 +145,7 @@ if(isset($_GET['remove'])){
 
 <footer class="text-center text-secondary"> <p>© 2023 ProtoType. All Rights Reserved.</p></footer>
 <div style="z-index: 1; position: fixed; right:20px; bottom:20px;" >
-           <a href=""><img src="assets/icons/whatsapp.png" alt="">
+           <a href="https://web.whatsapp.com/"><img src="assets/icons/whatsapp.png" alt="">
         </a> 
         </div>
 </body>

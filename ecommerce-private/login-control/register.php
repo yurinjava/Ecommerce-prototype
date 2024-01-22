@@ -14,6 +14,7 @@ $email = $_POST['email'];
 $password = password_hash($_POST['senha'], PASSWORD_BCRYPT);
 $cep = $_POST['cep'];
 $address = $_POST['endereco'];
+$number = $_POST['numero'];
 $complement = $_POST['complemento'];
 $uf = $_POST['uf'];
 $district = $_POST['bairro'];
@@ -31,15 +32,16 @@ $lastInsertedId = $pdo->lastInsertId();
 // Output the result
 // $lastInsertedId;
 
-$stmt = $pdo->prepare("INSERT INTO address (address_cep, address_street, address_complement, address_city, address_state, address_district, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt = $pdo->prepare("INSERT INTO address (address_cep, address_street, address_number, address_complement, address_city, address_state, address_district, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
 $stmt->bindParam(1, $cep);
 $stmt->bindParam(2, $address);
-$stmt->bindParam(3, $complement);
-$stmt->bindParam(4, $city);
-$stmt->bindParam(5, $uf);
-$stmt->bindParam(6, $district);
-$stmt->bindParam(7, $lastInsertedId);
+$stmt->bindParam(3, $number);
+$stmt->bindParam(4, $complement);
+$stmt->bindParam(5, $city);
+$stmt->bindParam(6, $uf);
+$stmt->bindParam(7, $district);
+$stmt->bindParam(8, $lastInsertedId);
 
 $stmt->execute();
 

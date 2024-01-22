@@ -58,32 +58,38 @@
 		}
         
 </script>
+<style>
+    body{
+        height: 100vh;
+        background-color: #f8f9fa;
+    }
+</style>
 <body  >
 
 
 <img src="assets/icons/logo.png" alt="Logo" class="logo">
 <div class="container mb-3">
-    <div class="row justify-content-center mt-5 ">
+    <div class="row justify-content-center mt-5">
         <div class="col-md-6 ">
             <form action="ecommerce-private/login-control/register.php" method="post">
                 <!-- Section 1 -->
                 <div class="form-group " id="personalData" >
-                    <h2>Personal Data</h2>
+                    <h2>Informações Pessoais</h2>
                     <label for="nomeCompleto">Nome Completo:</label>
-                    <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" required>
+                    <input type="text" class="form-control" placeholder="seu nome" id="nomeCompleto" name="nomeCompleto" required>
 
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" placeholder="seu email" id="email" name="email" required>
 
                     <label for="senha">Senha:</label>
-                    <input type="password" class="form-control w-25" id="senha" name="senha" required>
+                    <input type="password" class="form-control w-25"  placeholder="senha" id="senha" name="senha" required>
 
                     <label for="confirmarSenha">Confirmar Senha:</label>
-                    <input type="password" class="form-control w-25" id="confirmarSenha" name="confirmarSenha" required>
+                    <input type="password" class="form-control w-25" placeholder="confirme sua senha" id="confirmarSenha" name="confirmarSenha" required>
                     
                   
-                    <a href="login.php" class="btn btn-danger mt-2">Return</a>
-                    <button class="btn btn-success mt-2" style=" position: absolute; right: 40px;" onclick="nextStep()">Next</button>
+                    <a href="login.php" class="btn btn-danger mt-2">Voltar</a>
+                    <button class="btn btn-success mt-2" style=" position: absolute; right: 40px;" onclick="nextStep()">Próximo</button>
                    
                     
                 </div>
@@ -93,14 +99,28 @@
                     <h2>Address</h2>
                     <label for="cep">CEP:</label>
                     <input type="text" onblur="getDadosEderecoPorCep(this.value)" class="form-control w-25" id="cep" name="cep" required>
+<br>
+                    
 
-                    <div class="form-row">
-                    <label for="endereco">Address:</label>
-                    <input type="text" class="form-control" id="endereco" name="endereco" required>
+                    
 
-                    <label for="complemento">Complement:</label>
-                    <input type="text" class="form-control" id="complemento" name="complemento">
+
+                    <div class="form-row ">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" class="form-control w-50 "  id="endereco" name="endereco" required>
+                    
+                    <label for="numero">N°:</label>
+                    <input type="text"  class="form-control  ml-1 " style="width: 10%;" name="numero" required>
+
+                   
                     </div>
+                    <label for="complement">Complement:</label>
+                    <input type="text" class="form-control w-25 " id="complemento" name="complemento">
+
+                  
+                   
+
+                    
 
                
 
@@ -137,14 +157,14 @@
                         </select>
 
                         <br>
-                    <label for="bairro">District:</label>
+                    <label for="bairro">Bairro:</label>
                     <input type="text" class="form-control w-50" id="bairro" name="bairro" required>
 
                  
 
                     
 
-                    <label for="cidade">City:</label>
+                    <label for="cidade">Cidade:</label>
                     <input type="text" class="form-control w-50" id="cidade" name="cidade" required>
                 </div>
                  <button  id="returnAddress" onclick="stepBack()" style="display: none; position: absolute; bottom:30px; left: 50px;" class="btn btn-danger" >Back</button>

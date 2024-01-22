@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset( $_SESSION['authentication'])){
-    header('Location: ../../login.php?loginFirts-1');
+    header('Location: ../../login.php?loginFirst=1');
     exit();
 }
 if(isset($_POST['product_id'])){

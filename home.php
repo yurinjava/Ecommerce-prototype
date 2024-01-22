@@ -25,6 +25,8 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
     return $b->product_relevance <=> $a->product_relevance;
     });
 }
+
+
 ///////////////////////////////////////////////////////////
 ?>
 <!DOCTYPE html>
@@ -140,7 +142,7 @@ if(isset($_GET['filter']) && $_GET['filter']=='lowestprice'){
         <footer class="text-center text-secondary"> <p>© 2023 ProtoType. All Rights Reserved.</p></footer>
     </div>
     <div style="z-index: 1; position: fixed; right:20px; bottom:20px;" >
-           <a href=""><img src="assets/icons/whatsapp.png" alt="">
+           <a href="https://web.whatsapp.com/" target="_blank"><img src="assets/icons/whatsapp.png" alt="">
         </a> 
         </div>
  
